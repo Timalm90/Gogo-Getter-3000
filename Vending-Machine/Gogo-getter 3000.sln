@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vending-Machine", "Vending-Machine\Vending-Machine.csproj", "{D97B53A3-5BB1-4479-BC0F-CECE23789215}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gogo-getter 3000", "Gogo-getter 3000.csproj", "{D97B53A3-5BB1-4479-BC0F-CECE23789215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
