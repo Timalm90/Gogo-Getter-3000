@@ -7,6 +7,7 @@ class Program
         User user = new User(25);
         Inventory inventory = new Inventory();
         VendingMachine vm = new VendingMachine(inventory);
+        
 
         bool running = true;
 
@@ -20,25 +21,7 @@ class Program
             switch (choice)
             {
                 case "1":
-                    PrintProductMenu(vm);
-                    Console.Write("Enter number to buy: ");
-
-
-                    if (int.TryParse(Console.ReadLine(), out int productChoice))
-                    {
-                        if (productChoice == 0)
-                        {
-                            Console.WriteLine("Returning...");
-                            break;
-                        }
-
-                        vm.BuyProduct(productChoice, user);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input.");
-                    }
-
+                    BuySectionLoop(vm, user);
                     break;
 
                 case "2":
@@ -64,6 +47,36 @@ class Program
                     break;
             }
 
+            static void BuySectionLoop(VendingMachine vm, User user)
+            {
+                bool buyingDone = false;
+
+                while (!buyingDone)
+                {
+                    PrintProductMenu(vm, user);
+                    Console.Write("Enter number to buy: ");
+
+                    if (int.TryParse(Console.ReadLine(), out int productChoice))
+                    {
+                        if (productChoice == 0)
+                        {
+                            Console.WriteLine("Returning to main menu...");
+                            buyingDone = true;
+                        }
+                        else
+                        {
+                            vm.BuyProduct(productChoice, user);
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input.");
+                        Console.WriteLine();
+                    }
+                }
+            }
+
             static void ShowNiklasReaction(User user, ref bool running)
             {
                 int count = user.GetTotalCount();
@@ -71,7 +84,7 @@ class Program
                 if (count == 0)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("You have 0 Gogo's. Niklas feels misled and walks away.");
+                    Console.WriteLine("You have 0 Gogo's. Niklas feels misled and angrily walks away.");
                     return;
                 }
 
@@ -147,7 +160,7 @@ class Program
                 else if (count <= 2)
                 {
                     Console.WriteLine($"You show Niklas {count} Gogo's.");
-                    Console.WriteLine("He's not very impressed.");
+                    Console.WriteLine("He's not very impressed. You should buy more gogo's.");
                 }
                 else if (count <= 4)
                 {
@@ -175,7 +188,7 @@ class Program
                 Console.WriteLine();
             }
 
-            static void PrintProductMenu(VendingMachine vm)
+            static void PrintProductMenu(VendingMachine vm, User user)
             {
                 Console.WriteLine();
                 Console.WriteLine("╔═══════════════════════════════════════╗");
@@ -183,6 +196,8 @@ class Program
                 Console.WriteLine("╚═══════════════════════════════════════╝");
                 Console.WriteLine();
                 vm.ShowProducts();
+                Console.WriteLine();
+                Console.WriteLine($"Your Money: ${user.Money}");
                 Console.WriteLine();
                 Console.WriteLine("  0. Return to main menu");
                 Console.WriteLine();
