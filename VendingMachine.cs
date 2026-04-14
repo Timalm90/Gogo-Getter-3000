@@ -15,7 +15,7 @@ public class VendingMachine
 
         for (int i = 0; i < products.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {products[i].Name} - {products[i].Price}");
+            Console.WriteLine($"  {i + 1}. {products[i].Name,-20} ${products[i].Price}");
         }
     }
 
