@@ -16,7 +16,7 @@ public class Inventory
         };
     }
 
-    public Product GetProduct(int index)
+    public Product? GetProduct(int index)
     {
         if (index >= 0 && index < products.Count)
             return products[index];

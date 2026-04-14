@@ -26,7 +26,7 @@ class Program
                 PrintMainMenu();
                 Console.Write("Choose: ");
 
-                string choice = Console.ReadLine();
+                string choice = Console.ReadLine() ?? "";
 
                 switch (choice)
                 {
@@ -58,12 +58,11 @@ class Program
                 }
             }
 
-            // Ask if player wants to play again
             Console.WriteLine();
             Console.Write("Play again? (yes/no): ");
-            string resetChoice = Console.ReadLine();
+            string resetChoice = Console.ReadLine() ?? "";
 
-            if (resetChoice?.ToLower() != "yes" && resetChoice?.ToLower() != "y")
+            if (resetChoice.ToLower() != "yes" && resetChoice.ToLower() != "y")
             {
                 playAgain = false;
             }
@@ -126,7 +125,7 @@ class Program
                     Console.WriteLine("  2. No");
                     Console.WriteLine();
 
-                    string giveChoice = Console.ReadLine();
+                    string giveChoice = Console.ReadLine() ?? "";
 
                     if (giveChoice == "1")
                     {

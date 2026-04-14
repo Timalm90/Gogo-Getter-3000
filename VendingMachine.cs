@@ -21,7 +21,7 @@ public class VendingMachine
 
     public void BuyProduct(int choice, User user)
     {
-        Product product = inventory.GetProduct(choice - 1);
+        Product? product = inventory.GetProduct(choice - 1);
 
         if (product == null)
         {
