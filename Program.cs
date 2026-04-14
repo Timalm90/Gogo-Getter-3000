@@ -75,7 +75,6 @@ class Program
                     return;
                 }
 
-                // GOLD OVERRIDE
                 if (user.HasGold())
                 {
                     Console.WriteLine();
@@ -121,7 +120,7 @@ class Program
                         Console.WriteLine();
 
                         Console.WriteLine("Sometimes, while grocery shopping, you think you see Niklas outside selling BingoLotter.");
-                        Console.WriteLine("But you're never quite sure, since you can't make out his face underneath years of misery.");
+                        Console.WriteLine("But you're never quite sure, since you can't make out his face underneath years of bad life decisions.");
                         Console.WriteLine();
 
                         Console.WriteLine("╔═══════════════════════════════════════╗");
