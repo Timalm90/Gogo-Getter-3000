@@ -4,50 +4,73 @@ class Program
 {
     static void Main()
     {
-        User user = new User(25);
-        Inventory inventory = new Inventory();
-        VendingMachine vm = new VendingMachine(inventory);
-        
+        bool playAgain = true;
 
-        bool running = true;
-
-        while (running)
+        while (playAgain)
         {
-            PrintMainMenu();
-            Console.Write("Choose: ");
+            User user = new User(25);
+            Inventory inventory = new Inventory();
+            VendingMachine vm = new VendingMachine(inventory);
+            
+                   Console.WriteLine("");
+                    Console.WriteLine("╔═══════════════════════════════════════╗");
+                    Console.WriteLine("║   SUPER NICE GOGO-GETTER 3000         ║");
+                    Console.WriteLine("╚═══════════════════════════════════════╝");
 
-            string choice = Console.ReadLine();
+            bool running = true;
 
-            switch (choice)
+            while (running)
             {
-                case "1":
-                    BuySectionLoop(vm, user);
-                    break;
+     
 
-                case "2":
-                    ShowNiklasReaction(user, ref running);
-                    break;
+                PrintMainMenu();
+                Console.Write("Choose: ");
 
-                case "3":
-                    PrintMoneyDisplay(user);
-                    break;
+                string choice = Console.ReadLine();
 
-                case "4":
+                switch (choice)
+                {
+                    case "1":
+                        BuySectionLoop(vm, user);
+                        break;
 
-                    int count = user.GetTotalCount();
+                    case "2":
+                        ShowNiklasReaction(user, ref running);
+                        break;
 
-                    PrintGameEnding(count, user);
+                    case "3":
+                        PrintMoneyDisplay(user);
+                        break;
 
-                    running = false;
-                    break;
+                    case "4":
 
-                default:
+                        int count = user.GetTotalCount();
+
+                        PrintGameEnding(count, user);
+
+                        running = false;
+                        break;
+
+                    default:
                     Console.WriteLine();
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
+                }
             }
 
-            static void BuySectionLoop(VendingMachine vm, User user)
+            // Ask if player wants to play again
+            Console.WriteLine();
+            Console.Write("Play again? (yes/no): ");
+            string resetChoice = Console.ReadLine();
+
+            if (resetChoice?.ToLower() != "yes" && resetChoice?.ToLower() != "y")
+            {
+                playAgain = false;
+            }
+        }
+    }
+
+    static void BuySectionLoop(VendingMachine vm, User user)
             {
                 bool buyingDone = false;
 
@@ -77,14 +100,14 @@ class Program
                 }
             }
 
-            static void ShowNiklasReaction(User user, ref bool running)
-            {
-                int count = user.GetTotalCount();
+    static void ShowNiklasReaction(User user, ref bool running)
+    {
+        int count = user.GetTotalCount();
 
-                if (count == 0)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("You have 0 Gogo's. Niklas feels misled and angrily walks away.");
+        if (count == 0)
+        {
+            Console.WriteLine();
+            Console.WriteLine("You have 0 Gogo's. Niklas feels misled and angrily walks away.");
                     return;
                 }
 
@@ -122,9 +145,9 @@ class Program
                     else
                     {
                         Console.WriteLine();
+                        Console.WriteLine();
                         Console.WriteLine("Niklas starts crying...");
                         Console.WriteLine("You slowly walk away.");
-                        Console.WriteLine();
 
                         Console.WriteLine("═══════════════════════════════════════");
                         Console.WriteLine("It's 15 years later...");
@@ -134,6 +157,7 @@ class Program
 
                         Console.WriteLine("Sometimes, while grocery shopping, you think you see Niklas outside selling BingoLotter.");
                         Console.WriteLine("But you're never quite sure, since you can't make out his face underneath years of bad life decisions.");
+                        
                         Console.WriteLine();
 
                         Console.WriteLine("╔═══════════════════════════════════════╗");
@@ -174,88 +198,83 @@ class Program
                 }
             }
 
-            static void PrintMainMenu()
-            {
-                Console.WriteLine();
-                Console.WriteLine("╔═══════════════════════════════════════╗");
-                Console.WriteLine("║   SUPER NICE GOGO-GETTER 3000         ║");
-                Console.WriteLine("╚═══════════════════════════════════════╝");
-                Console.WriteLine();
-                Console.WriteLine("  1. Buy Gogo's");
-                Console.WriteLine("  2. Show Gogo's collection to Niklas");
-                Console.WriteLine("  3. Check my money");
-                Console.WriteLine("  4. Exit Game");
-                Console.WriteLine();
-            }
+    static void PrintMainMenu()
+    {
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("  1. Buy Gogo's");
+        Console.WriteLine("  2. Show Gogo's collection to Niklas");
+        Console.WriteLine("  3. Check my money");
+        Console.WriteLine("  4. Exit Game");
+        Console.WriteLine();
+    }
 
-            static void PrintProductMenu(VendingMachine vm, User user)
+    static void PrintProductMenu(VendingMachine vm, User user)
             {
                 Console.WriteLine();
                 Console.WriteLine("╔═══════════════════════════════════════╗");
-                Console.WriteLine("║           AVAILABLE GOGO'S           ║");
+                Console.WriteLine("║           AVAILABLE GOGO'S            ║");
                 Console.WriteLine("╚═══════════════════════════════════════╝");
                 Console.WriteLine();
                 vm.ShowProducts();
                 Console.WriteLine();
-                Console.WriteLine($"Your Money: ${user.Money}");
-                Console.WriteLine();
                 Console.WriteLine("  0. Return to main menu");
                 Console.WriteLine();
-            }
-
-            static void PrintMoneyDisplay(User user)
-            {
-                Console.WriteLine();
-                Console.WriteLine("╔═══════════════════════════════════════╗");
-                Console.WriteLine("║               YOUR BALANCE            ║");
-                Console.WriteLine("╠═══════════════════════════════════════╣");
-                Console.WriteLine($"        Money: ${user.Money,-27}    ║   ");
-                Console.WriteLine("╚═══════════════════════════════════════╝");
+                Console.WriteLine($"Your Money: ${user.Money}");
                 Console.WriteLine();
             }
 
-            static void PrintGameEnding(int count, User user)
-            {
-                Console.WriteLine();
-                Console.WriteLine("╔═══════════════════════════════════════╗");
-                Console.WriteLine("║         GAME ENDING                   ║");
-                Console.WriteLine("╚═══════════════════════════════════════╝");
-                Console.WriteLine();
+    static void PrintMoneyDisplay(User user)
+    {
+        Console.WriteLine();
+        Console.WriteLine("╔═══════════════════════════════════════╗");
+        Console.WriteLine("║               YOUR BALANCE            ║");
+        Console.WriteLine("╠═══════════════════════════════════════╣");
+        Console.WriteLine($"        Money: ${user.Money,-27}       ");
+        Console.WriteLine("╚═══════════════════════════════════════╝");
+        Console.WriteLine();
+    }
 
-                if (count == 0)
-                {
-                    Console.WriteLine("Gogo's are for babies.");
-                    Console.WriteLine("You invest all your money into pogs instead.");
-                }
-                else if (count == 1)
-                {
-                    Console.WriteLine("You finished elementary school with 1 Gogo's.");
-                    Console.WriteLine(
-                        $"A lonely {user.GetAllItemsAsText()} sits in your pocket as a reminder of simpler times.");
-                }
-                else if (count <= 3)
-                {
-                    Console.WriteLine($"You finished elementary school with {count} Gogo's.");
-                    Console.WriteLine($"A respectable collection.");
-                }
-                else if (count <= 5)
-                {
-                    Console.WriteLine($"You finished elementary school with {count} Gogo's.");
-                    Console.WriteLine($"You were one of the popular kids. Everyone admired your collection.");
-                }
-                else
-                {
-                    Console.WriteLine($"You finished elementary school with {count} Gogo's.");
-                    Console.WriteLine($"You became a legend.");
-                    Console.WriteLine($"Your collection is talked about to this day.");
-                }
+    static void PrintGameEnding(int count, User user)
+    {
+        Console.WriteLine();
+        Console.WriteLine("╔═══════════════════════════════════════╗");
+        Console.WriteLine("║         GAME ENDING                   ║");
+        Console.WriteLine("╚═══════════════════════════════════════╝");
+        Console.WriteLine();
 
-                Console.WriteLine();
-                Console.WriteLine("╔═══════════════════════════════════════╗");
-                Console.WriteLine("║          ----- THE END -----          ║");
-                Console.WriteLine("╚═══════════════════════════════════════╝");
-                Console.WriteLine();
-            }
+        if (count == 0)
+        {
+            Console.WriteLine("Gogo's are for babies.");
+            Console.WriteLine("You invest all your money into pogs instead.");
         }
+        else if (count == 1)
+        {
+            Console.WriteLine("You finished elementary school with 1 Gogo's.");
+            Console.WriteLine(
+                $"A lonely {user.GetAllItemsAsText()} sits in your pocket as a reminder of simpler times.");
+        }
+        else if (count <= 3)
+        {
+            Console.WriteLine($"You finished elementary school with {count} Gogo's.");
+            Console.WriteLine($"A respectable collection.");
+        }
+        else if (count <= 5)
+        {
+            Console.WriteLine($"You finished elementary school with {count} Gogo's.");
+            Console.WriteLine($"You were one of the popular kids. Everyone admired your collection.");
+        }
+        else
+        {
+            Console.WriteLine($"You finished elementary school with {count} Gogo's.");
+            Console.WriteLine($"You became a legend.");
+            Console.WriteLine($"Your collection is talked about to this day.");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("╔═══════════════════════════════════════╗");
+        Console.WriteLine("║          ----- THE END -----          ║");
+        Console.WriteLine("╚═══════════════════════════════════════╝");
+        Console.WriteLine();
     }
 }

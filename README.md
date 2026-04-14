@@ -5,13 +5,17 @@ A fun C# console application - a vending machine game where you collect Gogos!
 ## Requirements
 
 - .NET 10.0 SDK or later
+- Visual Studio Code (recommended) or any C# IDE
 
 ## Installation
+
+1. Clone or download this repository
+2. Open the project folder in Visual Studio Code
+3. Restore dependencies:
 
 ```bash
 dotnet restore
 ```
-
 ## Running the Application
 
 ```bash
