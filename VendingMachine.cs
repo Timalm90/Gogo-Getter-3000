@@ -32,7 +32,9 @@ public class VendingMachine
         if (user.SpendMoney(product.Price))
         {
             user.AddPurchase(product.Name.Trim());
+            Console.WriteLine();
             Console.WriteLine($"You bought {product.Name.Trim()}!");
+            Console.WriteLine();
         }
         else
         {

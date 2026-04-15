@@ -82,12 +82,16 @@ class Program
                     {
                         if (productChoice == 0)
                         {
-                            Console.WriteLine("Returning to main menu...");
+                            Console.WriteLine();
+                            
+                            Console.WriteLine("═══════════════════════════════════════");
                             buyingDone = true;
                         }
                         else
                         {
                             vm.BuyProduct(productChoice, user);
+                            Console.WriteLine();
+                            Console.WriteLine("═══════════════════════════════════════");
                             Console.WriteLine();
                         }
                     }
@@ -130,9 +134,13 @@ class Program
                     if (giveChoice == "1")
                     {
                         user.RemoveGold();
+                        Console.WriteLine("╔═══════════════════════════════════════╗");
+                        Console.WriteLine("║                 Yes                   ║");
+                        Console.WriteLine("╚═══════════════════════════════════════╝");
                         Console.WriteLine();
                         Console.WriteLine("You give Niklas the Golden Gogo's.");
                         Console.WriteLine("He is incredibly thankful and lets you pet his hedgehog.");
+                        
                         Console.WriteLine("You live happily ever after.");
                         Console.WriteLine("Yet sometimes, in the middle of the night, you wake up and wonder what might have been.");
                         Console.WriteLine();
@@ -143,11 +151,13 @@ class Program
                     }
                     else
                     {
+                        Console.WriteLine("╔═══════════════════════════════════════╗");
+                        Console.WriteLine("║          ----- NO!-----               ║");
+                        Console.WriteLine("╚═══════════════════════════════════════╝");
                         Console.WriteLine();
+                        Console.WriteLine("Niklas starts crying.");
+                        Console.WriteLine("You slowly walk away...");
                         Console.WriteLine();
-                        Console.WriteLine("Niklas starts crying...");
-                        Console.WriteLine("You slowly walk away.");
-
                         Console.WriteLine("═══════════════════════════════════════");
                         Console.WriteLine("It's 15 years later...");
                         Console.WriteLine("═══════════════════════════════════════");
@@ -195,6 +205,9 @@ class Program
                     Console.WriteLine($"You show Niklas your collection: {user.GetAllItemsAsText()}.");
                     Console.WriteLine("Wow, you sure do have a lot of gogo's!");
                 }
+                
+                Console.WriteLine();
+                Console.WriteLine("═══════════════════════════════════════");
             }
 
     static void PrintMainMenu()
@@ -229,10 +242,9 @@ class Program
         Console.WriteLine("╔═══════════════════════════════════════╗");
         Console.WriteLine("║               YOUR BALANCE            ║");
         Console.WriteLine("╠═══════════════════════════════════════╣");
-        Console.WriteLine($"        Money: ${user.Money,-27}       ");
+        Console.WriteLine($"║               Money: ${user.Money,-16}║");
         Console.WriteLine("╚═══════════════════════════════════════╝");
-        Console.WriteLine();
-    }
+        Console.WriteLine();    }
 
     static void PrintGameEnding(int count, User user)
     {
