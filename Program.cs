@@ -140,7 +140,18 @@ class Program
                         Console.WriteLine();
                         Console.WriteLine("You give Niklas the Golden Gogo's.");
                         Console.WriteLine("He is incredibly thankful and lets you pet his hedgehog.");
-                        
+                        Console.WriteLine();
+                        Console.WriteLine("                                     \\ / \\/ \\/ / ,");
+                        Console.WriteLine("                                   \\ /  \\/ \\/  \\/  / ,");
+                        Console.WriteLine("                                 \\ \\ \\/ \\/ \\/ \\ \\/ \\/ /");
+                        Console.WriteLine("                               .\\  \\/  \\/ \\/ \\/  \\/ / / /");
+                        Console.WriteLine("                              '  / / \\/  \\/ \\/ \\/  \\/ \\ \\/ \\");
+                        Console.WriteLine("                           .'     ) \\/ \\/ \\/ \\/  \\/  \\/ \\ / \\");
+                        Console.WriteLine("                          /   o    ) \\/ \\/ \\/ \\/ \\/ \\/ \\// /");
+                        Console.WriteLine("                        o'_ ',__ .'   ,.,.,.,.,.,.,.,'- '%");
+                        Console.WriteLine("                                 // \\\\          // \\\\        ");
+                        Console.WriteLine("                                ''  ''         ''  ''");
+                        Console.WriteLine();
                         Console.WriteLine("You live happily ever after.");
                         Console.WriteLine("Yet sometimes, in the middle of the night, you wake up and wonder what might have been.");
                         Console.WriteLine();
