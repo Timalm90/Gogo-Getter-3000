@@ -173,7 +173,7 @@ class Program
                         Console.WriteLine("You slowly walk away...");
                         Console.WriteLine();
                         Console.WriteLine("═══════════════════════════════════════");
-                        Console.WriteLine("It's 15 years later...");
+                        Console.WriteLine("It's 25 years later...");
                         Console.WriteLine("═══════════════════════════════════════");
                         Console.WriteLine("You are now the head of a successful company, making millions of dollars and are extremely popular.");
                         Console.WriteLine();
