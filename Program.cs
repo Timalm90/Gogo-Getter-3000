@@ -16,6 +16,9 @@ class Program
                     Console.WriteLine("╔═══════════════════════════════════════╗");
                     Console.WriteLine("║   SUPER NICE GOGO-GETTER 3000         ║");
                     Console.WriteLine("╚═══════════════════════════════════════╝");
+                    Console.WriteLine("");
+                   Console.WriteLine("It's 1999. You should probably buy some Gogo's");
+
 
             bool running = true;
 
